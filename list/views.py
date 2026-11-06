@@ -1,4 +1,5 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 from list.models import Rent
 from .forms import RentForm
 # Create your views here.
@@ -19,3 +20,9 @@ def new_rent(request):
     }
     
     return render(request, 'list/new_rent.html', context)
+
+@require_POST
+def delete_rent(request, rent_id):
+    rent = get_object_or_404(Rent, id=rent_id)
+    rent.delete()
+    return redirect('all_rents')

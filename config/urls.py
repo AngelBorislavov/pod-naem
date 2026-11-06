@@ -21,5 +21,6 @@ from list import views as list_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', list_views.all_rents, name='all_rents'),
+    path('delete_rent/<int:rent_id>/', list_views.delete_rent, name='delete_rent'),
     path('new_rent', list_views.new_rent, name='new_rent')
 ]
