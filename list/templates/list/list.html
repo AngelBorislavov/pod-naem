@@ -1,0 +1,39 @@
+{% extends "list/base.html" %}
+{% block content %}
+
+<h2>Списък на наемите</h2>
+<div class="table-responsive rent-table-container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Клиент</th>
+            <th>Артикул</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Телефон</th>
+            <th>Дата на запис</th>
+            <th>Дата на връщане</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rent in rents %}
+            <tr>
+                <td>{{ rent.id }}</td>
+                <td>{{ rent.client_name }}</td>
+                <td>{{ rent.item }}</td>
+                <td>{{ rent.queantity }}</td>
+                <td>{{ rent.price|default_if_none:"—" }}</td>
+                <td>{{ rent.tel_number }}</td>
+                <td>{{ rent.creted_at|date:"d.m.Y" }}</td>
+                <td>{{ rent.return_date|date:"d.m.Y" }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="8">Няма налични наеми.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

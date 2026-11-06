@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+
+.nav{
+    display:flex;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+div.rent-table-container {
+    width: 70%;
+    margin-inline: auto;
+}
+
+div.rent-table-container > table {
+    --bs-table-bg: #198754;
+    --bs-table-color: #fff;
+}
+
+h2{
+    text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+    div.rent-table-container {
+        width: 100%;
+    }
+}
